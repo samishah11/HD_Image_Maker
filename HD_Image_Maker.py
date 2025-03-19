@@ -28,7 +28,7 @@ if uploaded_file:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded Image", use_container_width=True)
     
-    scale = st.slider("Select Upscale Percentage", min_value=10, max_value=1000, value=100, step=100)
+    scale = st.slider("Select Upscale Percentage", min_value=0, max_value=1000, value=50, step=200)
     
     if st.button("Upscale Image"):
         upscaled_image = upscale_image(image, scale)
