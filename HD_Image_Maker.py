@@ -26,13 +26,13 @@ uploaded_file = st.file_uploader("Upload an Image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Image", use_column_width=True)
+    st.image(image, caption="Uploaded Image", use_container_width=True)
     
-    scale = st.slider("Select Upscale Percentage", min_value=100, max_value=1000, value=200, step=50)
+    scale = st.slider("Select Upscale Percentage", min_value=10, max_value=1000, value=100, step=100)
     
     if st.button("Upscale Image"):
         upscaled_image = upscale_image(image, scale)
-        st.image(upscaled_image, caption=f"Upscaled Image ({scale}%)", use_column_width=True)
+        st.image(upscaled_image, caption=f"Upscaled Image ({scale}%)", use_container_width=True)
         
         # Convert image to bytes for download
         img_bytes = io.BytesIO()
